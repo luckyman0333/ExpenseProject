@@ -7,10 +7,9 @@
 
 ## Технологічний стек
 
-- **Back-end**: Django, Django REST Framework, Python
+- **Back-end**: Django, Python
 - **Front-end**: React, TypeScript
 - **База даних**: MongoDB
-- **Зовнішні сервіси**: Stripe API для обробки платежів
 
 ## Функціональні можливості
 
