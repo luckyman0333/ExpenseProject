@@ -27,3 +27,13 @@
 - Python 3.8+
 - Node.js 14+
 - MongoDB
+
+### Підготовка до інсталяції
+
+створення віртуального середовища python в файлі проекту
+    python -m venv venv
+    venv\Scripts\activate
+
+Інсталяція Django 
+    pip install django djangorestframework
+
