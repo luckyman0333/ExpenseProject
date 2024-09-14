@@ -1,39 +1,46 @@
 # Expense Manager
 
-## Опис проекту
+## Description of the project
 
-**Expense Manager** — це веб-додаток для відстеження витрат та доходів, який дозволяє користувачам зручно керувати своїми фінансами.
-Додаток підтримує створення звітів, категоризацію витрат, автоматичні платежі через інтеграцію зі Stripe, та візуалізацію даних.
+**Expense Manager** is a web-based expense and income tracking application that allows users to conveniently manage their finances.
+The application supports the creation of reports, categorization of expenses, automatic payments through integration with Stripe, and data visualization.
 
-## Технологічний стек
+## Technological stack
 
 - **Back-end**: Django, Python
 - **Front-end**: React, TypeScript
 - **База даних**: MongoDB
 
-## Функціональні можливості
+## Functional capabilities
 
-- Реєстрація та вхід користувачів
-- Додавання та управління транзакціями
-- Встановлення бюджетів та відстеження витрат по категоріях
-- Автоматизація регулярних платежів через Stripe
-- Генерація фінансових звітів та аналітика
-- Візуалізація витрат за допомогою графіків та діаграм
+- User registration and login
+- Adding and managing transactions
+- Setting budgets and tracking expenses by category
+- Automation of regular payments through Stripe
+- Generation of financial reports and analytics
+- Visualization of costs using graphs and charts
 
-## Встановлення та запуск
+## Installation and launch
 
-### Вимоги
+### Requirements
 
 - Python 3.8+
 - Node.js 14+
 - MongoDB
 
-### Підготовка до інсталяції
+### Installation
 
-створення віртуального середовища python в файлі проекту
-    python -m venv venv
-    venv\Scripts\activate
+1. Clone the repository:
+    git clone https://github.com/luckyman0333/ExpenseProject.git
+    cd ExpenseProject
 
-Інсталяція Django 
-    pip install django djangorestframework
+2. Create a virtual environment: Create and activate a virtual environment for Python:
+    python -m venv env
+    env\Scripts\activate
+
+3. Install the dependencies using pip:
+    pip install -r requirements.txt
+
+
+
 
