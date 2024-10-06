@@ -5,18 +5,17 @@ import {MainLayout, ContentLayout} from "./ui/components/layout"
 import { ThemeProvider } from '@mui/system';
 
 import {hrtimeLight} from "./ui/material/theme.js"
-import RegistrationsView from "./ui/registrations/view.js"
-import CardsView from "./ui/cards/view.js"
-import DepartmentsView from "./ui/departments/view.js"
-import UsersView from "./ui/users/view.js"
+import RegistrationsView from "./ui/pages/registrations/view.js"
+import CardsView from "./ui/pages/cards/view.js"
+import DepartmentsView from "./ui/pages/departments/view.js"
+import UsersView from "./ui/pages/users/view.js"
 
 // TODO probably theme is not prefiled
-// 
-// 
+//
+//
 function App() {
     const [loading, setLoading] = useState(false);
     const [progress, setProgress] = useState(0);
-    
     useEffect(() => {
 	console.log("TODO: Loading...")
     }, []);
