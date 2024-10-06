@@ -1,0 +1,23 @@
+// ███    ██  ██████  ████████
+// ████   ██ ██    ██    ██
+// ██ ██  ██ ██    ██    ██
+// ██  ██ ██ ██    ██    ██
+// ██   ████  ██████     ██
+//
+// ██    ██ ███████ ███████
+// ██    ██ ██      ██
+// ██    ██ ███████ █████
+// ██    ██      ██ ██
+//  ██████  ███████ ███████
+//
+// ========================
+// The main reason is the
+// mixing Material UI with
+// it Theming mechanizm and
+// some static CSS files
+// make two source of truth
+// So use only in exceptional
+// cases
+// ========================
+@import 'variables.scss';
+@import 'layout.scss';
