@@ -22,12 +22,13 @@
     "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "http://localhost:9101/",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "proxy": "http://localhost:9101/",
+    "scripts": {
+	"start": "react-scripts start",
+	"build": "react-scripts build",
+	"test":  "react-scripts test",
+	"eject": "react-scripts eject",
+	"mock":  "npx mockoon-cli start --data mock/env.json"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@mockoon/cli": "^8.4.0"
   }
 }
