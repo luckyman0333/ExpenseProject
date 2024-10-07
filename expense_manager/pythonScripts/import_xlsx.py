@@ -1,6 +1,7 @@
 import openpyxl
 import argparse
 import abc
+import os
 
 class DataPack(abc.ABC):
     def __init__(self):
@@ -67,6 +68,8 @@ class DataPackMono(DataPack):
         for row in self.source_data:
             print(row)
 
+    def display_headers(self):
+        print(self.headers)
 
     def display_columns(self, columns):
         # We check whether all the transferred columns are in the headers
@@ -131,6 +134,9 @@ class DataPackPrivat(DataPack):
         for row in self.source_data:
             print(row)
 
+    def display_headers(self):
+        print(self.headers)
+
     def display_columns(self, columns):
         # We check whether all the transferred columns are in the headers
         invalid_columns = [col for col in columns if col not in self.headers]
@@ -146,28 +152,36 @@ class DataPackPrivat(DataPack):
             row_values = [str(row.get(col, "No data available")) for col in columns]
             print(", ".join(row_values))
 
+def create_data_sets(file_list):
+    dataPacks = []
+    for file_path in file_list:
+        filename = os.path.basename(file_path)
+        if os.path.splitext(filename)[0].startswith("privat24"):
+            # print("to privat")
+            dataPacks.append(DataPackPrivat(file_path))
+        elif os.path.splitext(filename)[0].startswith("mono"):
+            # print("to monobank")
+            dataPacks.append(DataPackMono(file_path))
+        else:
+            print("error. file: ", filename, "not found")
+    return dataPacks
+
 
 def main():
-    
+
     parser = argparse.ArgumentParser(description="Gets file names and paths to them.")
-    
-    parser.add_argument('file1', type=str, help="The path to the first file")
-    parser.add_argument('file2', type=str, help="The path to the first file")
-    
+    parser.add_argument('-f', '--file', help="The path to the file", action="append")
     args = parser.parse_args()
 
-    file1_path = args.file1
-    file2_path = args.file2
+    dataPacks = []
+    if args.file:
+        dataPacks = create_data_sets(args.file)
+    else:
+        print("Error: No files provided.")
 
-
-
-    mono_data_pack = DataPackMono(file1_path)
-    privat_data_pack = DataPackPrivat(file2_path)
-
-    mono_data_pack.load_data()
-    privat_data_pack.load_data()
-
-    privat_data_pack.display_data()
+    for dataPack in dataPacks:
+        dataPack.load_data()
+        dataPack.display_headers()
 
 
 if __name__ == "__main__":
