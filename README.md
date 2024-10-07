@@ -41,6 +41,9 @@ The application supports the creation of reports, categorization of expenses, au
 3. Install the dependencies using pip:
     pip install -r requirements.txt
 
+4. Install openpyxl for excell files:
+    pip install openpyxl
+
 
 
 
