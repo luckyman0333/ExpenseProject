@@ -19,7 +19,7 @@ import { styled } from '@mui/material/styles'
 {/* to do, move it to themes!! */}
 const StyledTableCell = styled(TableCell)({
     "& .MuiTableCell-head": {  // or "& .MuiTableCell-root" or "& .MuiTableCell-body" ...
-        //backgroundColor: "#99D9EA",
+        backgroundColor: "#cbe1e8",
         fontWeight: 600
     }
 });
@@ -38,7 +38,7 @@ const TableWithInfiniteScroll = ({ columns, rows }) => {
             await new Promise(resolve =>
                 setTimeout(() => {
                     const amount = rows.length + 50
-                   // setRows(generateItems(amount))
+                    // setRows(generateItems(amount))
                     setLoading(false)
                     resolve()
                 }, 2000),
@@ -72,27 +72,22 @@ const TableWithInfiniteScroll = ({ columns, rows }) => {
             {loading && <CircularProgress style={{ position: 'absolute', top: '100px' }} />}
             <Table>
                 <StyledTableCell>
-                <TableHead>
-                    <TableRow>
-                        {columns.map((column) => (
-                            <TableCell>{column.title}</TableCell>
-                        ))}
-                    </TableRow>
-                </TableHead>
+                    <TableHead>
+                        <TableRow>
+                            {columns.map((column) => (
+                                <TableCell>{column.title}</TableCell>
+                            ))}
+                        </TableRow>
+                    </TableHead>
 
-                <TableBody>
-                    {rows.map(( row ) => (
-                        <TableRow key={row.card_nr}> {/* to do!!, rewrite it to not static!! */}
-                            <TableCell>{row.first_name}</TableCell>
-                            <TableCell>{row.last_name}</TableCell>
-                            <TableCell>{row.act}</TableCell>
-                            <TableCell>{row.card_nr}</TableCell>
-                            <TableCell>{row.work_type}</TableCell>
-                            <TableCell>{row.datetime}</TableCell>
-                            <TableCell>{row.section}</TableCell>
-                            <TableCell>{row.direction}</TableCell>
-                        </TableRow>))}
-                </TableBody>
+                    <TableBody>
+                        {rows.map(( row ) => (
+                            <TableRow key={row.card_nr}> {/* to do!!, dynamic columns */}
+                                {columns.map(( column ) => (
+                                    <TableCell>{row[column.key]}</TableCell>
+                                ))}
+                            </TableRow>))}
+                    </TableBody>
                 </StyledTableCell>
             </Table>
         </TableContainer>)
