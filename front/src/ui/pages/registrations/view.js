@@ -7,8 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import { ObjectInspector } from 'react-inspector';
-import { TableWithInfiniteScroll } from '/home/julia/react+hrtime/ExpenseProject/front/src/ui/components/table.js'; // to doo!!!! change this path to not full
-
+import { TableWithInfiniteScroll } from '../../components/table.js';
 
 function HealthCheckButton(){
     const [data, setData] = useState(null);
