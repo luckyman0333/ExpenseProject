@@ -1,0 +1,24 @@
+{
+    "mainRoutes": [
+	{
+	    "path": "/",
+	    "component": "regs",
+	    "label": "Registrations"
+	},
+	{
+	    "path": "/cards",
+	    "component": "cards",
+	    "label": "Cards"
+	},
+	{
+	    "path": "/users",
+	    "component": "users",
+	    "label": "User Base"
+	},
+	{
+	    "path": "/departments",
+	    "component": "departments",
+	    "label": "Departments"
+	}
+    ]
+}
