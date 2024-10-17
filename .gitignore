@@ -1,5 +1,6 @@
 #my changes Valerii
 /my_env
+*.pyc
 
 front/node_modules/
 
