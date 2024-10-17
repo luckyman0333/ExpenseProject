@@ -166,11 +166,11 @@ def create_data_sets(file_list):
             print("error. file: ", filename, "not found")
     return dataPacks
 
+parser = argparse.ArgumentParser(description="Gets file names and paths to them.")
+parser.add_argument('-f', '--file', help="The path to the file", action="append")
 
 def main():
 
-    parser = argparse.ArgumentParser(description="Gets file names and paths to them.")
-    parser.add_argument('-f', '--file', help="The path to the file", action="append")
     args = parser.parse_args()
 
     dataPacks = []
