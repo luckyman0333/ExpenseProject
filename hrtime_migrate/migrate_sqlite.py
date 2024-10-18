@@ -3,18 +3,15 @@ import sqlite3, os, json, argparse
 
 parser = argparse.ArgumentParser(description="Migrate data from json to sqlite3.")
 parser.add_argument('action')
-parser.add_argument('-p', '--path',   help="Path to migration directory (folder with jsons).")
 parser.add_argument('-d', '--dbpath', help="Destination path for database (where DB should be).")
 parser.add_argument('-f', '--file',   help="Name of file to migrate. Can insert more than one with repeat -f.", action="append")
 args = parser.parse_args()
 
-# print(args.path)
 # print(args.dbpath)
 # print(args.file)
 
 action = args.action
 db_path = args.dbpath
-migration_directory_path = args.path
 files_to_migrate = args.file
 
 
@@ -61,13 +58,12 @@ def run_migration():
         conn = sqlite3.connect(db_path)
         c = conn.cursor()
 
-        for json_name in files_to_migrate:
-            json_path = os.path.join(os.getcwd(), migration_directory_path, json_name)
+        for json_path in files_to_migrate:
             if os.path.exists(json_path):
-                print("> Migrate file: {}".format(json_name))
+                print("> Migrate file: {}".format(json_path))
                 migrate_json(json_path, c)
             else:
-                print("> Skip migration on: {}. File not exist: {}".format(json_name, json_path))
+                print("> File not exist. Skip migration on: {}.".format(json_path))
 
         conn.commit()
         conn.close()
